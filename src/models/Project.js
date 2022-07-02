@@ -1,11 +1,33 @@
 const { Model } = require("sequelize");
 
-class Project extends Model {}
+class Blog extends Model {}
 
-const schema = {};
+const schema = {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false,
+  },
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  fundingAmount: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: false,
+    validate: {
+      isDecimal: true,
+    },
+  },
+};
 
 const options = {};
 
-Project.init(schema, options);
+Blog.init(schema, options);
 
-module.exports = Project;
+module.exports = Blog;
