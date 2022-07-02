@@ -1,0 +1,24 @@
+{
+  "name": "my-tech-blog",
+  "version": "1.0.0",
+  "description": "build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sophia4422/my-tech-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sophia4422/my-tech-blog/issues"
+  },
+  "homepage": "https://github.com/sophia4422/my-tech-blog#readme",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.2"
+  }
+}
