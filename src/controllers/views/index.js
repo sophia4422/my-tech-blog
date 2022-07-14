@@ -5,4 +5,9 @@ const renderHomePage = (re, res) => {
   return res.sendFile(filePath);
 };
 
-module.exports = { renderHomePage };
+const renderLoginPage = (re, res) => {
+  const filePath = path.join(__dirname, "../../../public/login.html");
+  return res.sendFile(filePath);
+};
+
+module.exports = { renderHomePage, renderLoginPage };
