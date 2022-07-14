@@ -15,7 +15,14 @@ body {
 
 .home-image {
   width: 1920px;
-  height: auto;
+  height: 650px;
+  object-fit: cover;
+}
+
+.home-image-two {
+  width: 1920px;
+  height: 650px;
+  object-fit: cover;
 }
 
 .home-container {
@@ -38,8 +45,24 @@ body {
   text-shadow: 2px 2px 4px rgba(40, 5, 83, 0.506);
 }
 
+.home-text-two {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  color: rgb(202, 220, 228);
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(40, 5, 83, 0.506);
+}
+
 .blue {
   text-shadow: 2px 2px 4px rgba(3, 101, 96, 0.804);
+  color: rgb(202, 220, 228);
+}
+
+.white {
+  color: white;
 }
 
 .h2-title {
@@ -50,15 +73,35 @@ body {
   text-align: center;
   transform: translate(-50%, -50%);
   font-size: 30px;
-
   text-shadow: 2px 2px 4px rgba(40, 5, 83, 0.506);
   font-family: "Satisfy", cursive;
+}
+
+.login-btn-home {
+  padding: 10px;
+  font-size: 2vw;
+}
+
+.login-btn-home a {
+  text-decoration: none;
+  color: #063c46;
+}
+
+.login-center-two {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: rgba(255, 255, 255, 0.768);
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
 }
 
 /* login page css */
 .login-center {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
