@@ -98,6 +98,16 @@ body {
   backdrop-filter: blur(4px);
 }
 
+.blog-card {
+  width: 18rem;
+  margin: 10px;
+}
+
+.blog-cards {
+  width: 100%;
+  display: flex;
+}
+
 /* login page css */
 .login-center {
   position: absolute;
