@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Dashboard | Tech Blog</title>
+    <title>New Blog | Tech Blog</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,143 +25,75 @@
   <body>
     <!-- Private Nav Bar -->
     <header>
-      <div class="container">
-        <nav class="navbar navbar-expand-sm navbar-light">
-          <a class="navbar-brand" href="./index.html"> techBlog </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#toggleMobileMenu"
-            aria-controls="toggleMobileMenu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="toggleMobileMenu">
-            <!-- Nav Bar Links -->
-            <ul class="navbar-nav ms-auto text-center">
-              <li>
-                <a class="nav-link active" href="./index.html">Home</a>
-              </li>
-              <li>
-                <a class="nav-link" href="./dashboard.html">Dashboard</a>
-              </li>
-              <li>
-                <a class="nav-link" href="./contact.html">Contact</a>
-              </li>
-              <li>
-                <button class="btn btn-link nav-link border-0">Log Out</button>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="./index.html"> techBlog </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#toggleMobileMenu"
+          aria-controls="toggleMobileMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="toggleMobileMenu">
+          <!-- Nav Bar Links -->
+          <ul class="navbar-nav ms-auto text-center">
+            <li>
+              <a class="nav-link active" href="./index.html">Home</a>
+            </li>
+            <li>
+              <a class="nav-link" href="./dashboard.html">Dashboard</a>
+            </li>
+            <li>
+              <a class="nav-link" href="./contact.html">Contact</a>
+            </li>
+            <li>
+              <button class="btn btn-link nav-link border-0">Log Out</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
     <!-- End of Nav bar -->
 
     <!-- Public Home Page Image and Title -->
     <main>
-      <section class="flex-container">
-        <div class="home-container">
-          <img
-            src="./assets/images/tech.jpeg"
-            class="home-image-two"
-            alt="blue motherboard style background"
-          />
-          <h1 class="home-text">
-            Your Blog <span class="blue">Dashboard</span>!
-          </h1>
-          <h2 class="home-text-two">
-            <span class="white">View all of your blog posts</span>
-            and create new ones here!
-          </h2>
-          <button class="login-center-two login-btn-home">
-            <a href="./login.html">Create Blog Post</a>
-          </button>
-        </div>
-      </section>
-
-      <!-- All Blog Posts -->
-      <section class="blog-cards">
-        <!-- Blog Card-->
-        <div class="card d-flex flex-row blog-card">
-          <div class="card-body">
-            <h5 class="card-title">Blog title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="card-link">View Blog</a>
+      <section>
+        <h2 class="text-center mt-2 p-2">Create a new Blog Post</h2>
+        <form class="m-2 p-2" id="create-blog-form">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Blog Title</label>
+            <textarea
+              class="form-control"
+              id="new-blog-title"
+              rows="1"
+              placeholder="Enter tech blog title here..."
+            ></textarea>
           </div>
-        </div>
 
-        <!-- Blog Card-->
-        <div class="card d-flex flex-row blog-card">
-          <div class="card-body">
-            <h5 class="card-title">Blog title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="card-link">View Blog</a>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Blog Content</label>
+            <textarea
+              class="form-control"
+              id="new-blog-content"
+              rows="10"
+              placeholder="Write your tech blog content here..."
+            ></textarea>
           </div>
-        </div>
-
-        <!-- Blog Card-->
-        <div class="card d-flex flex-row blog-card">
-          <div class="card-body">
-            <h5 class="card-title">Blog title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="card-link">View Blog</a>
+          <div class="form-group row">
+            <div class="mb-3 text-danger error-text">
+              Failed to publish blog. Please try again.
+            </div>
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary mt-2">
+                Publish Blog
+              </button>
+            </div>
           </div>
-        </div>
-
-        <!-- Blog Card-->
-        <div class="card d-flex flex-row blog-card">
-          <div class="card-body">
-            <h5 class="card-title">Blog title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="card-link">View Blog</a>
-          </div>
-        </div>
-
-        <!-- Blog Card-->
-        <div class="card d-flex flex-row blog-card">
-          <div class="card-body">
-            <h5 class="card-title">Blog title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="card-link">View Blog</a>
-          </div>
-        </div>
-
-        <!-- Blog Card-->
-        <div class="card d-flex flex-row blog-card">
-          <div class="card-body">
-            <h5 class="card-title">Blog title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="card-link">View Blog</a>
-          </div>
-        </div>
+        </form>
       </section>
     </main>
 

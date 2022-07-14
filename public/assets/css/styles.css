@@ -108,6 +108,10 @@ body {
   display: flex;
 }
 
+.error-text {
+  font-size: 20px;
+}
+
 /* login page css */
 .login-center {
   position: absolute;
