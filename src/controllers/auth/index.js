@@ -1,66 +1,63 @@
-// const { User } = require("../../models");
+const { User } = require("../../models");
 
-// const login = async (req, res) => {
-//   try {
-//     const { email, password } = req.body;
+const login = async (req, res) => {
+  //   try {
+  //     const { email, password } = req.body;
+  //     const user = await User.findOne({ where: { email } });
+  //     if (!user) {
+  //       console.log(
+  //         `[ERROR]: Failed to login | No user with email address of ${email}`
+  //       );
+  //       return res.status(401).json({ error: "Failed to login" });
+  //     }
+  //     const isAuthorised = await user.checkPassword(password);
+  //     if (isAuthorised) {
+  //       return res.json({ data: "hello" });
+  //     } else {
+  //       return res.status(401).json({ data: "lol" });
+  //     }
+  //   } catch (error) {
+  //     console.log(`[ERROR]: Failed to login | ${error.message}`);
+  //   }
+};
 
-//     const user = await User.findOne({ where: { email } });
+const signup = async (req, res) => {
+  //this controller function will receive a payload
+  //create a user
+  //send a response to say successfully created user
 
-//     if (!user) {
-//       console.log(
-//         `[ERROR]: Failed to login | No user with email address of ${email}`
-//       );
-//       return res.status(401).json({ error: "Failed to login" });
-//     }
+  try {
+    ///get user data from payload
+    const { firstName, userName, email, password } = req.body;
+    //check user exists
+    const user = await User.findOne({ where: { email } });
 
-//     const isAuthorised = await user.checkPassword(password);
+    if (user) {
+      console.log(
+        `[ERROR]: Failed to create user | Account with email: ${email} already exists`
+      );
+      return res.status(500).json({ success: false });
+    }
 
-//     if (isAuthorised) {
-//       return res.json({ data: "hello" });
-//     } else {
-//       return res.status(401).json({ data: "lol" });
-//     }
-//   } catch (error) {
-//     console.log(`[ERROR]: Failed to login | ${error.message}`);
-//   }
-// };
+    //create user
+    const data = await User.create({
+      firstName,
+      userName,
+      email,
+      password,
+    });
 
-// const signup = async (req, res) => {
-//   try {
-//     const { firstName, lastName, email, password } = req.body;
+    return res.json({ data: "Successfully created user" });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to create user | ${error.message}`);
+    return res.status(500).json({ success: false });
+  }
+};
 
-//     const user = await User.findOne({ where: { email } });
+const logout = async (req, res) => {};
 
-//     if (user) {
-//       console.log(
-//         `[ERROR]: Failed to create user | Email address of ${email} already exists`
-//       );
-//       return res.status(400).json({ error: "Failed to create user" });
-//     }
-
-//     const data = await User.create({
-//       firstName,
-//       Lastname,
-//       email,
-//       password,
-//     });
-
-//     return res.json({ data: "Successfully created user" });
-// } catch (error) {
-//     console.log(`[ERROR]: Failed to create user`);
-
-//     return res.status(500).json({ error: failed to create user});
-// }
-
-//   } catch (error) {
-//     console.log(`[ERROR]: Failed to login | ${error.message}`);
-//   }
-// };
-
-// const logout = async (req, res) => {};
-
-// module.exports = {
-//   login,
-//   signup,
-//   logout,
-// };
+module.exports = {
+  login,
+  signup,
+  logout,
+};
