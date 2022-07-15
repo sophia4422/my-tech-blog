@@ -1,5 +1,8 @@
 const { Model } = require("sequelize");
 
+const connection = require("../config/connection");
+const User = require("./User");
+
 class Blog extends Model {}
 
 const schema = {
@@ -12,21 +15,31 @@ const schema = {
   title: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      len: [2, 30],
+    },
   },
   description: {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  fundingAmount: {
-    type: DataTypes.DECIMAL(10, 2),
+  userId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
-    validate: {
-      isDecimal: true,
+    references: {
+      model: User,
+      key: "id",
     },
   },
 };
 
-const options = {};
+const options = {
+  sequelize: connection,
+  timestamps: true,
+  underscored: false,
+  freezeTableName: true,
+  modelName: "blog",
+};
 
 Blog.init(schema, options);
 
