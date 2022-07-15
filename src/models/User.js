@@ -5,6 +5,15 @@ const connection = require("../config/connection");
 const { hashPassword } = require("../hooks");
 
 class User extends Model {
+  getUser() {
+    return {
+      id: this.id,
+      firstName: this.firstName,
+      userName: this.userName,
+      email: this.email,
+    };
+  }
+
   async checkPassword(password) {
     const isValid = await bcrypt.compare(password, this.password);
     return isValid;
@@ -22,7 +31,7 @@ const schema = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  lastName: {
+  userName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
