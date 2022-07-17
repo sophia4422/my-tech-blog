@@ -1,4 +1,5 @@
 const signupForm = $("#signup-form");
+const loginForm = $("#login-form");
 
 const renderError = (id, message) => {
   const errorDiv = $(`#${id}`);
@@ -38,10 +39,16 @@ const handleSignup = async (event) => {
         if (data.success) {
           window.location.assign("/login");
         } else {
-          //render error failed to login
+          renderError(
+            "signup-error",
+            "Failed to create account. Please try again"
+          );
         }
       } catch (error) {
-        //render error failed to login
+        renderError(
+          "signup-error",
+          "Failed to create account. Please try again."
+        );
       }
     } else {
       renderError("signup-error", "Passwords do not match. Try again.");
@@ -54,4 +61,41 @@ const handleSignup = async (event) => {
   console.log("submit");
 };
 
+const handleLogin = async (event) => {
+  event.preventDefault();
+
+  const email = $("#email").val;
+  const password = $("#password").val;
+
+  if (email && password) {
+    try {
+      const payload = {
+        email,
+        password,
+      };
+
+      const response = await fetch("/auth/login", {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        window.location.assign("/dashboard");
+      } else {
+        renderError("login-error", "Failed to login. Please try again");
+      }
+    } catch (error) {
+      renderError("login-error", "Failed to login. Please try again.");
+    }
+  } else {
+    renderError("login-error", "Passwords do not match. Try again.");
+  }
+};
+
 signupForm.submit(handleSignup);
+loginForm.submit(handleLogin);
