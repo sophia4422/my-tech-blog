@@ -1,14 +1,52 @@
-const getAllBlogs = (req, res) => {
+const { Blog } = require("../../models");
+
+const getAllBlogs = async (req, res) => {
   // get all blogs
-  return res.json({ success: true, data: [] });
+  try {
+    const data = await Blog.findAll({});
+    return res.json({ success: true, data: [] });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to get all blogs | ${error.message}`);
+    return res.status(500).json({ success: false });
+  }
 };
 
-const createBlog = (req, res) => {
-  return res.json({ success: true });
+const getSingleBlog = async (req, res) => {
+  try {
+    await Blog.findByPk(id);
+    const { id } = req.params;
+
+    if (!data) {
+      return res.status(404).json({ success: false });
+    }
+
+    return res.json({ success: true, data: [] });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to get the blog | ${error.message}`);
+    return res.status(500).json({ success: false });
+  }
 };
 
-const getSingleBlog = (req, res) => {
-  return res.json({ success: true, data: {} });
+const createBlog = async (req, res) => {
+  try {
+    //get data from payload
+    const { title, description } = req.body;
+
+    //for now: hard code user id
+    //later get user id from logged in session object
+    const userId = 1;
+
+    await Blog.create({
+      title,
+      description,
+      userId,
+    });
+
+    return res.json({ success: true });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to create blog | ${error.message}`);
+    return res.status(500).json({ success: false });
+  }
 };
 
 module.exports = {
