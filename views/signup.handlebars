@@ -1,0 +1,81 @@
+<!-- Nav Bar -->
+<div class="container">
+  <nav class="navbar navbar-expand-sm navbar-light">
+    <a class="navbar-brand" href="/"> techBlog </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#toggleMobileMenu"
+      aria-controls="toggleMobileMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="toggleMobileMenu">
+      <!-- Nav Bar Links -->
+      <ul class="navbar-nav ms-auto text-center">
+        <li>
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/dashboard">Dashboard</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<!-- End of Nav bar -->
+
+<!-- Home Page Image and Title -->
+<div class="home-container">
+  <img
+    src="./assets/images/tech.jpeg"
+    class="home-image"
+    alt="blue motherboard style background"
+  />
+</div>
+
+<!-- Sign Up -->
+<div class="login-center">
+  <h1>Sign Up to Tech Blog!</h1>
+  <form method="post">
+    <!-- first name -->
+    <div class="text-field">
+      <input type="text" required />
+      <label>First Name</label>
+    </div>
+    <!-- last name -->
+    <div class="text-field">
+      <input type="text" required />
+      <label>Username</label>
+    </div>
+    <!-- email -->
+    <div class="text-field">
+      <input type="text" required />
+      <label>Email</label>
+    </div>
+    <!-- password -->
+    <div class="text-field">
+      <input type="password" required />
+      <label>Password</label>
+    </div>
+    <!-- confirm password -->
+    <div class="text-field">
+      <input type="password" required />
+      <label>Confirm Password</label>
+    </div>
+    <input type="submit" value="Sign Up" />
+    <div class="signup-link">
+      Already a member?
+      <a href="/login">Login</a>
+    </div>
+  </form>
+</div>
