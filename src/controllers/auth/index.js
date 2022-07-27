@@ -12,7 +12,11 @@ const login = async (req, res) => {
     }
     const isAuthorised = await user.checkPassword(password);
     if (isAuthorised) {
-      return res.json({ success: true });
+      req.session.save(() => {
+        req.session.isLoggedIn = true;
+        req.session.user = user.getUser();
+        return res.json({ success: true });
+      });
     } else {
       console.log(
         `[ERROR]: Failed to login | Incorrect password for email: ${email}`
@@ -60,7 +64,15 @@ const signup = async (req, res) => {
   }
 };
 
-const logout = async (req, res) => {};
+const logout = async (req, res) => {
+  if (req.session.isLoggedIn) {
+    req.session.destroy(() => {
+      return res.status(204).end();
+    });
+  } else {
+    return res.status(404).end();
+  }
+};
 
 module.exports = {
   login,
