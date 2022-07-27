@@ -98,8 +98,21 @@ const handleLogin = async (event) => {
   }
 };
 
-const handleLogout = () => {
-  console.log("logout");
+const handleLogout = async () => {
+  try {
+    const response = await fetch("/auth/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      window.location.assign("/");
+    }
+  } catch (error) {
+    console.log("Failed to logout");
+  }
 };
 
 signupForm.submit(handleSignup);
