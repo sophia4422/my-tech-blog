@@ -37,9 +37,8 @@ const signup = async (req, res) => {
   //send a response to say successfully created user
 
   try {
-    ///get user data from payload
     const { firstName, userName, email, password } = req.body;
-    //check user exists
+
     const user = await User.findOne({ where: { email } });
 
     if (user) {
