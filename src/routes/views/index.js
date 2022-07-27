@@ -16,7 +16,7 @@ router.get("/", renderHomePage);
 router.get("/login", renderLoginPage);
 router.get("/signup", renderSignUpPage);
 router.get("/dashboard", auth, renderDashboardPage);
-router.get("/create-blog", renderCreateBlogPage);
+router.get("/create-blog", auth, renderCreateBlogPage);
 router.get("/blogs/:id", renderBlogPage);
 
 module.exports = router;

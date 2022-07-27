@@ -2,7 +2,7 @@ const path = require("path");
 
 const renderHomePage = (req, res) => {
   return res.render("home", {
-    isLoggedIn: true,
+    isLoggedIn: req.session.isLoggedIn,
   });
 };
 
@@ -19,8 +19,7 @@ const renderDashboardPage = (req, res) => {
 };
 
 const renderCreateBlogPage = (req, res) => {
-  const filePath = path.join(__dirname, "../../../public/createBlog.html");
-  return res.sendFile(filePath);
+  return res.render("createBlog");
 };
 
 const renderBlogPage = (req, res) => {
