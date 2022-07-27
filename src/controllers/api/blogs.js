@@ -32,9 +32,7 @@ const createBlog = async (req, res) => {
     //get data from payload
     const { title, description } = req.body;
 
-    //for now: hard code user id
-    //later get user id from logged in session object
-    const userId = 1;
+    const userId = req.session.user.id;
 
     await Blog.create({
       title,

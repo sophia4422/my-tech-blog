@@ -1,6 +1,7 @@
 const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
 const logoutBtn = $("#logout-btn");
+const createBlogForm = $("#create-blog-form");
 
 const renderError = (id, message) => {
   const errorDiv = $(`#${id}`);
@@ -115,6 +116,49 @@ const handleLogout = async () => {
   }
 };
 
+const handleCreatePlaylist = async (event) => {
+  event.preventDefault();
+
+  const title = $("#new-blog-title").val;
+  const description = $("#new-blog-content").val;
+
+  if (title && description) {
+    try {
+      const payload = {
+        title,
+        description,
+      };
+
+      const response = await fetch("/auth/blogs", {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        window.location.assign("/dashboard");
+      } else {
+        renderError(
+          "create-blog-error",
+          "Failed to create a new blog. Please try again"
+        );
+      }
+    } catch (error) {
+      renderError(
+        "create-blog-error",
+        "Failed to create a new blog. Please try again."
+      );
+    }
+  } else {
+    renderError("create-blog-error", "Please complete all required fields.");
+  }
+};
+
 signupForm.submit(handleSignup);
 loginForm.submit(handleLogin);
 logoutBtn.click(handleLogout);
+createBlogForm.submit(handleCreatePlaylist);
