@@ -1,8 +1,9 @@
 const path = require("path");
 
 const renderHomePage = (req, res) => {
-  const filePath = path.join(__dirname, "../../../public/publicHome.html");
-  return res.sendFile(filePath);
+  return res.render("home", {
+    isLoggedIn: true,
+  });
 };
 
 const renderLoginPage = (req, res) => {
