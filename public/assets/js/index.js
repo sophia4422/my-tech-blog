@@ -1,5 +1,6 @@
 const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
+const logoutBtn = $("#logout-btn");
 
 const renderError = (id, message) => {
   const errorDiv = $(`#${id}`);
@@ -97,5 +98,10 @@ const handleLogin = async (event) => {
   }
 };
 
+const handleLogout = () => {
+  console.log("logout");
+};
+
 signupForm.submit(handleSignup);
 loginForm.submit(handleLogin);
+logoutBtn.click(handleLogout);
