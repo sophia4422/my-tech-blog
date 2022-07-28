@@ -26,82 +26,9 @@
 
   <!-- All Blog Posts -->
   <section class="blog-cards">
-    <!-- Blog Card-->
-    <div class="card d-flex flex-row blog-card">
-      <div class="card-body">
-        <h5 class="card-title">Blog title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="/blogs/1" class="card-link">View Blog</a>
-      </div>
-    </div>
-
-    <!-- Blog Card-->
-    <div class="card d-flex flex-row blog-card">
-      <div class="card-body">
-        <h5 class="card-title">Blog title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="/blogs/2" class="card-link">View Blog</a>
-      </div>
-    </div>
-
-    <!-- Blog Card-->
-    <div class="card d-flex flex-row blog-card">
-      <div class="card-body">
-        <h5 class="card-title">Blog title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="/blogs/3" class="card-link">View Blog</a>
-      </div>
-    </div>
-
-    <!-- Blog Card-->
-    <div class="card d-flex flex-row blog-card">
-      <div class="card-body">
-        <h5 class="card-title">Blog title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="/blogs/4" class="card-link">View Blog</a>
-      </div>
-    </div>
-
-    <!-- Blog Card-->
-    <div class="card d-flex flex-row blog-card">
-      <div class="card-body">
-        <h5 class="card-title">Blog title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="/blogs/5" class="card-link">View Blog</a>
-      </div>
-    </div>
-
-    <!-- Blog Card-->
-    <div class="card d-flex flex-row blog-card">
-      <div class="card-body">
-        <h5 class="card-title">Blog title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Added 22/05/22</h6>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="/blogs/6" class="card-link">View Blog</a>
-      </div>
-    </div>
+     {{#each blogs as |blog|}}
+      {{> blogCard}}
+      {{/each}}
+ 
   </section>
 </main>
