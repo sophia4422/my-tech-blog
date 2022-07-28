@@ -31,8 +31,22 @@ const renderSignUpPage = (req, res) => {
   return res.render("signup");
 };
 
-const renderDashboardPage = (req, res) => {
-  return res.render("dashboard");
+const renderDashboardPage = async (req, res) => {
+  const blogsFromDb = await Blog.findAll({
+    where: {
+      userId: req.session.user.id,
+    }
+    include: {
+      model: User,
+      attributes: ["firstName", "userName"],
+    },
+    attributes: ["id", "title", "description"],
+  });
+
+  const blogs = blogsFromDb.map((blog) => {
+    return blog.get({ plain: true });
+  });
+  return res.render("dashboard", { blogs });
 };
 
 const renderCreateBlogPage = (req, res) => {
