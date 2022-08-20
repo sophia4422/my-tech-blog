@@ -1,0 +1,34 @@
+{{#if isLoggedIn }}
+{{> privateNavBar}}
+{{else}}
+{{> publicNav}}
+{{/if}}
+
+<!-- Public Home Page Image and Title -->
+<main>
+  <section class="flex-container">
+    <div class="home-container">
+      <img
+        src="./assets/images/tech.jpeg"
+        class="home-image-two"
+        alt="blue motherboard style background"
+      />
+      <h1 class="home-text">All Things <span class="blue">Tech</span>!</h1>
+      <h2 class="home-text-two">
+        <span class="white">Join the conversation with other tech fans</span>
+        and create your own blog posts today!
+      </h2>
+      <button class="login-center-two login-btn-home">
+        <a href="/login">Login</a>
+      </button>
+    </div>
+  </section>
+
+  <!-- All Blog Posts -->
+  <section class="blog-cards">
+     {{#each blogs as |blog|}}
+      {{> blogCard}}
+      {{/each}}
+ 
+  </section>
+</main>

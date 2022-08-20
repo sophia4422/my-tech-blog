@@ -1,0 +1,32 @@
+{{privateNavBar}}
+
+<main>
+  <section class="flex-container">
+    <div class="home-container">
+      <img
+        src="./assets/images/tech.jpeg"
+        class="home-image-two"
+        alt="blue motherboard style background"
+      />
+      <h1 class="home-text">
+        Your Blog
+        <span class="blue">Dashboard</span>!
+      </h1>
+      <h2 class="home-text-two">
+        <span class="white">View all of your blog posts</span>
+        and create new ones here!
+      </h2>
+      <button class="login-center-two login-btn-home">
+        <a href="/create-blog">Create Blog Post</a>
+      </button>
+    </div>
+  </section>
+
+  <!-- All Blog Posts -->
+  <section class="blog-cards">
+    <!-- Blog Card-->
+   {{#each blogs as |blog|}}
+      {{> blogCard}}
+      {{/each}}
+  </section>
+</main>
